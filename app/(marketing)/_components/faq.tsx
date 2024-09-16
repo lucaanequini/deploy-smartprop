@@ -32,14 +32,13 @@ export const Faq = () => {
                     <AccordionItem value="item-3" data-aos='fade-left'>
                         <AccordionTrigger>Há simulador remunerado?</AccordionTrigger>
                         <AccordionContent>
-                            <span className="font-semibold text-dark-green">SIM</span>, você já recebe desdo o primeiro ciclo mensal.
+                            <span className="font-semibold text-dark-green">resposta</span>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4" data-aos='fade-right'>
                         <AccordionTrigger>Qual a diferença das plataformas?</AccordionTrigger>
                         <AccordionContent>
-                            Yes. It&apos;s animated by default, but you can disable it if you
-                            prefer.
+                            <span className="font-semibold text-dark-green">Resposta</span>
                         </AccordionContent>
                     </AccordionItem>
 
