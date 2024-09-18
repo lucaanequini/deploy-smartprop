@@ -15,7 +15,7 @@ interface RegisterParams {
 interface LoginParams {
     username: string
     email?: string
-    password: string
+    senha: string
 }
 
 const authService = {

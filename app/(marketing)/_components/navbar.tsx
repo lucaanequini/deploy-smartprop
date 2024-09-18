@@ -10,9 +10,13 @@ import {
 
 import { Button } from "@/components/ui/button"
 
+import { useRouter } from "next/navigation"
+
 import Link from "next/link"
 
 export const Navbar = () => {
+    const router = useRouter()
+
     return (
         <div className='bg-dark-green mx-auto rounded-[23px] w-[80%]'
             data-aos='fade-right'
@@ -24,7 +28,7 @@ export const Navbar = () => {
                     <Link className="hover:text-light-green/50" href='/'>Planos</Link>
                     <Link className="hover:text-light-green/50" href='/'>FAQ&apos;s</Link>
                     <Link className="hover:text-light-green/50" href='/'>Contato</Link>
-                    <Link className="hover:text-light-green/50" href='/'>Área do Trader</Link>
+                    <Link className="hover:text-light-green/50" href='/login'>Área do Trader</Link>
                 </div>
                 <div className="flex items-center md:hidden">
                     <Sheet>
@@ -44,13 +48,15 @@ export const Navbar = () => {
                                         <Link href='/'>FAQ&apos;s</Link>
                                         <Link href='/'>Sobre nós</Link>
                                     </div>
-                                    <Button variant='green' className="rounded-full shadow-3xl w-40 mx-auto sm:mx-0">Área do Trader</Button>
+                                    <Button variant='green' className="rounded-full shadow-3xl w-40 mx-auto sm:mx-0" onClick={() => router.push("/login")}>
+                                        Área do Trader
+                                    </Button>
                                 </div>
                             </SheetHeader>
                         </SheetContent>
                     </Sheet>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }

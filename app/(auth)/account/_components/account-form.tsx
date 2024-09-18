@@ -1,14 +1,27 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
-import { useForm } from "react-hook-form";
-
 import { z } from "zod";
+
 import { zodResolver } from "@hookform/resolvers/zod"
+
 import authService from "@/services/authService";
-import { Form, FormField, FormLabel, FormItem, FormControl, FormMessage } from '@/components/ui/form';
+
+import {
+    Form,
+    FormField,
+    FormLabel,
+    FormItem,
+    FormControl,
+    FormMessage
+} from '@/components/ui/form';
+
 import { Input } from '@/components/ui/input';
+
 import { Button } from '@/components/ui/button';
+
+import { useRouter } from 'next/navigation';
+
+import { useForm } from "react-hook-form";
 
 const formSchema = z.object({
     nome: z.string(),
