@@ -7,9 +7,6 @@ interface RegisterParams {
     telefone: string
     email: string
     cep: string
-    rua: string
-    numero: string
-    complemento: string
     senha: string
     validateSenha: string
     username: string
