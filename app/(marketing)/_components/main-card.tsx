@@ -9,21 +9,21 @@ export const MainCard = () => {
                     <CalendarClock className="w-12 h-12 xl:w-16 xl:h-16 text-light-green" strokeWidth={1} />
                     <p className="text-3xl sm:text-2xl lg:text-4xl font-semibold text-dark-green">45 dias</p>
                 </div>
-                <p className="text-sm text-dark-green xl:max-w-60 xl:ml-24 xl:-mt-7">Esse é o tempo máximo para você passar em nossos exames. Gerando muito mais conforto, até porque como um trader não é necessário operar todos os dias.</p>
+                <p className="text-sm text-dark-green xl:max-w-60 xl:ml-24 xl:-mt-7">Este é o prazo máximo para você alcançar a aprovação nos nossos exames. Atingir o sucesso em nossos desafios está ao seu alcance. Opere no seu ritmo para alcançar resultados consistentes.</p>
             </div>
             <div className="flex flex-col">
                 <div className="flex gap-x-4 mb-2">
                     <DollarSign className="w-12 h-12 xl:w-16 xl:h-16 text-light-green" strokeWidth={1} />
                     <p className="text-3xl sm:text-2xl lg:text-4xl font-semibold text-dark-green">Perda Máx.</p>
                 </div>
-                <p className="text-sm text-dark-green xl:max-w-60 xl:ml-24 xl:-mt-7">Planos feitos para você passar no exame! Todos com limite de perda máximo maior ou igual a meta para aprovação!</p>
+                <p className="text-sm text-dark-green xl:max-w-60 xl:ml-24 xl:-mt-7">Plano com limites confortáveis para se encaixar com seu operacional! Você tem o controle nas mãos!</p>
             </div>
             <div className="flex flex-col">
                 <div className="flex gap-x-4 mb-2">
                     <LoaderCircle className="w-12 h-12 xl:w-16 xl:h-16 text-light-green" strokeWidth={1} />
-                    <p className="text-3xl sm:text-2xl lg:text-4xl font-semibold text-dark-green xl:max-w-48">Aprovação com 85%</p>
+                    <p className="text-3xl sm:text-2xl lg:text-4xl font-semibold text-dark-green xl:max-w-48">Bônus por perfomance</p>
                 </div>
-                <p className="text-sm text-dark-green xl:max-w-60 xl:ml-24">Ao atingir 85% da meta você já pode solicitar aprovação para o plano!</p>
+                <p className="text-sm text-dark-green xl:max-w-60 xl:ml-24">Receba estímulos para continuar operando de maneira consistente e seja premiado com bônus que aumentarão seu percentual de repasse em até 35%!</p>
             </div>
         </div >
     )

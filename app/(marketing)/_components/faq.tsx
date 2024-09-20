@@ -20,25 +20,25 @@ export const Faq = () => {
                     <AccordionItem value="item-1" data-aos='fade-left'>
                         <AccordionTrigger>Posso ter mais de um plano?</AccordionTrigger>
                         <AccordionContent>
-                            <span className="font-semibold text-dark-green">SIM</span>, você pode ter mais de um plano, porém somente um deles será operável.
+                            <span className="font-semibold text-dark-green">SIM</span>, você pode ter mais de um plano, com limite máximo de 3 planos ativos simultâneos.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2" data-aos='fade-right'>
-                        <AccordionTrigger>A perca máxima é zerada mensalmente?</AccordionTrigger>
+                        <AccordionTrigger>A perda máxima é zerada mensalmente?</AccordionTrigger>
                         <AccordionContent>
-                            <span className="font-semibold text-dark-green">NÃO</span>, a perca máxima do plano não é zerada mensalmente, ela se mantém caso negativa, e vale sempre o saldo líquido total de sua plataforma.
+                            <span className="font-semibold text-dark-green">NÃO</span>, a perda máxima do plano não é zerada mensalmente, ela se mantém negativa, e vale sempre o saldo líquido total que aparece em sua plataforma.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3" data-aos='fade-left'>
                         <AccordionTrigger>Há simulador remunerado?</AccordionTrigger>
                         <AccordionContent>
-                            <span className="font-semibold text-dark-green">resposta</span>
+                            <span className="font-semibold text-dark-green">SIM</span> ,temos simulador remunerado. Ao ser aprovado no exame, você será migrado para o simulador remunerado já podendo receber repasses.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4" data-aos='fade-right'>
-                        <AccordionTrigger>Qual a diferença das plataformas?</AccordionTrigger>
+                        <AccordionTrigger>O que é o Bônus por Performance?</AccordionTrigger>
                         <AccordionContent>
-                            <span className="font-semibold text-dark-green">Resposta</span>
+                            Todo mês iremos disponibilizar desafios para os traders de conta real que ajudarão o trader a se manter no gerenciamento, caso o trader cumpra as metas ele receberá acréscimo de percentual em cima do valor líquido do repasse. Por exemplo o trader fez R$1000,00 será retirado 20% de IR e 10% da SmartProp sobrando R$800,00. Caso o trader cumpra os desafios, ele ganhará até 35% de acréscimo chegando a R$972,00.
                         </AccordionContent>
                     </AccordionItem>
 

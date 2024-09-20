@@ -16,7 +16,8 @@ export const Features = () => {
                         data-aos='fade-left'
                     >
                         <Bot className="xs:w-12 xs:h-12 md:w-16 md:h-16 text-white" strokeWidth={1} />
-                        <p className="text-white text-center text-sm xs:text-xs sm:text-sm">Utilizamos ciência de dados para buscar melhores condições para os traders em nossa mesa.</p>
+                        <p className="text-white text-center text-sm xs:text-xs sm:text-sm">Utilizamos a Ciência de dados para entender quais traders tem o perfil para ingressar diretamente a conta real ou ter seu caminho no Simulador Remunerado encurtado.
+                        </p>
                     </div>
                 </div>
                 <div className="flex flex-col w-full xs:flex-row gap-5 xs:gap-3 sm:gap-5 justify-center">
@@ -24,19 +25,19 @@ export const Features = () => {
                         data-aos='fade-right'
                     >
                         <BrainCircuit className="xs:w-12 xs:h-12 md:w-16 md:h-16 text-dark-green" strokeWidth={1} />
-                        <p className="text-dark-green text-center text-sm xs:text-xs sm:text-sm">Processos ágeis e automatizados, trazendo confiança e conforto, para o trader poder fazer o que faz de melhor.</p>
+                        <p className="text-dark-green text-center text-sm xs:text-xs sm:text-sm">Guiamos nosso negócio nas melhores práticas de Business Intelligence e Analytics constantemente analisando o modelo do negócio para caminhar de forma saudável.</p>
                     </div>
                     <div className="md:w-[23.7%] xs:h-56 rounded-3xl p-3 xs:p-5 bg-dark-green opacity-80 flex flex-col items-center justify-center gap-y-3 sm:gap-y-5"
                         data-aos='fade-left'
                     >
                         <PersonStanding className="xs:w-12 xs:h-12 md:w-16 md:h-16 text-white" strokeWidth={1} />
-                        <p className="text-white text-center text-sm xs:text-xs sm:text-sm">A smart é feita de trader pra trader sabemos as dores e as alegrias e vamos inserir isso na mesa!</p>
+                        <p className="text-white text-center text-sm xs:text-xs sm:text-sm">Processos recorrentes de pagamentos, promoções, aprovações  realizados de forma automatizada.</p>
                     </div>
                     <div className="md:w-[25%] xs:h-56 rounded-3xl p-3 xs:p-5 bg-dark-green flex flex-col items-center justify-center gap-y-3 sm:gap-y-5"
                         data-aos='fade-right'
                     >
                         <Computer className="xs:w-12 xs:h-12 md:w-16 md:h-16 text-white" strokeWidth={1} />
-                        <p className="text-sm xs:text-xs sm:text-sm text-white text-center">Aqui vamos desenvolver tecnologias modernas e profissionais com as melhores práticas de dados do mercado.</p>
+                        <p className="text-sm xs:text-xs sm:text-sm text-white text-center">A Smart é uma empresa de tecnologia e veio para profissionalizar o modelo de negócio das mesas proprietárias no Brasil.</p>
                     </div>
                 </div>
             </div>
