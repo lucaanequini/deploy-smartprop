@@ -37,11 +37,11 @@ const authService = {
             }
             return error
         })
-        if (res.status === 201) {
+        if (res.status === 200) {
             sessionStorage.setItem("smartprop-token", res.data.token);
         }
         return res
-    }
+    }   
 }
 
 export default authService

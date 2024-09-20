@@ -158,7 +158,7 @@ export const AccountForm = () => {
                         </div>
                         <div className='mx-auto'>
                             <Button className='w-52 mx-auto mt-2' type="submit" variant="green">Enviar</Button>
-                            <p className='text-xs pl-1 pt-1'>Já possui uma conta? Faça <span className='text-light-green hover:underline hover:cursor-pointer'>login</span></p>
+                            <p className='text-xs pl-1 pt-1'>Já possui uma conta? Faça <span className='text-light-green hover:underline hover:cursor-pointer' onClick={() => router.push("/login")}>login</span></p>
                         </div>
                     </div>
                 </form>

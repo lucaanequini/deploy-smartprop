@@ -70,7 +70,7 @@ export const LoginForm = () => {
                             </FormItem>
                         }} />
                         <div className='mx-auto'>
-                            <Button className='w-56 mx-auto mt-2' type="submit" variant="green">Enviar</Button>
+                            <Button className='w-56 mx-auto mt-2' type="submit" variant="green" onClick={() => router.push("/home")}>Enviar</Button>
                             <p className='text-xs pt-1'>Não possui uma conta? <span onClick={() => router.push('/account')} className='text-light-green hover:underline hover:cursor-pointer'>Cadastre-se</span></p>
                         </div>
                     </div>
