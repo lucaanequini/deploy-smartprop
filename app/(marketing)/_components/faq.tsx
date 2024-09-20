@@ -30,20 +30,25 @@ export const Faq = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3" data-aos='fade-left'>
-                        <AccordionTrigger>Há simulador remunerado?</AccordionTrigger>
+                        <AccordionTrigger>Tem simulador remunerado?</AccordionTrigger>
                         <AccordionContent>
-                            <span className="font-semibold text-dark-green">SIM</span> ,temos simulador remunerado. Ao ser aprovado no exame, você será migrado para o simulador remunerado já podendo receber repasses.
+                            <span className="font-semibold text-dark-green">SIM</span>, temos simulador remunerado. Ao ser aprovado no exame, você será migrado para o simulador remunerado já podendo receber repasses.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4" data-aos='fade-right'>
-                        <AccordionTrigger>O que é o Bônus por Performance?</AccordionTrigger>
+                        <AccordionTrigger>Recebo no  Simulador Remunerado?</AccordionTrigger>
                         <AccordionContent>
-                            Todo mês iremos disponibilizar desafios para os traders de conta real que ajudarão o trader a se manter no gerenciamento, caso o trader cumpra as metas ele receberá acréscimo de percentual em cima do valor líquido do repasse. Por exemplo o trader fez R$1000,00 será retirado 20% de IR e 10% da SmartProp sobrando R$800,00. Caso o trader cumpra os desafios, ele ganhará até 35% de acréscimo chegando a R$972,00.
+                            <span className="font-semibold text-dark-green">SIM</span>, o trader já começa a receber na primeira data de repasse.
                         </AccordionContent>
                     </AccordionItem>
-
+                    <AccordionItem value="item-5" data-aos='fade-left'>
+                        <AccordionTrigger>Há um Plano de Carreira?</AccordionTrigger>
+                        <AccordionContent>
+                            <span className="font-semibold text-dark-green">SIM</span>, a cada 3 meses os 3 melhores traders da conta real receberão um acréscimo de 30% da margem e do número de contratos.
+                        </AccordionContent>
+                    </AccordionItem>
                 </Accordion>
             </div>
-        </div>
+        </div >
     )
 }
