@@ -24,20 +24,21 @@ export const Plans = () => {
                     <p className="text-white text-xs">Deslize para ver mais </p>
                     <ArrowRight className="h-4 w-4 text-white" />
                 </div>
-                <div className="items-center gap-x-8 hidden xl:flex">
+                <div className="items-center gap-x-8 hidden 2xl:flex">
                     <div>
                         <Card title="SMART 1k" approvalGoal="850" dailyRisk="250" maxLoss="1.000" />
                     </div>
                     <div data-aos-delay='200'>
-                        <Card title="SMART 3k" approvalGoal="2.550" dailyRisk="750" maxLoss="3.000" />
+                        <Card title="SMART 2k" approvalGoal="2.550" dailyRisk="750" maxLoss="3.000" />
                     </div>
-                    <div><Card title="SMART 5k" approvalGoal="4.250" dailyRisk="1.250" maxLoss="5.000" /></div>
+                    <div><Card title="SMART 3k" approvalGoal="4.250" dailyRisk="1.250" maxLoss="5.000" /></div>
+                    <div><Card title="SMART 5k" approvalGoal="8.500" dailyRisk="2.500" maxLoss="10.000" /></div>
                     <div><Card title="SMART 10k" approvalGoal="8.500" dailyRisk="2.500" maxLoss="10.000" /></div>
                 </div>
-                <div className="flex items-center justify-center xl:hidden" data-aos='fade-up'>
+                <div className="flex items-center justify-center 2xl:hidden" data-aos='fade-up'>
                     <Carousel className="max-w-[310px] md:max-w-[630px] 2lg:max-w-[960px] h-full mx-auto">
                         <CarouselContent>
-                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3" data-aos='fade-left'>
+                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3 order-2 sm:order-1" data-aos='fade-left'>
                                 <CardUi className="bg-transparent border-0">
                                     <CardContent>
                                         <Card
@@ -49,11 +50,11 @@ export const Plans = () => {
                                     </CardContent>
                                 </CardUi>
                             </CarouselItem>
-                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3" data-aos='fade-left' data-aos-delay='200'>
+                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3 order-1 sm:order-2" data-aos='fade-left' data-aos-delay='200'>
                                 <CardUi className="bg-transparent border-0">
                                     <CardContent>
                                         <Card
-                                            title="SMART 3k"
+                                            title="SMART 2k"
                                             approvalGoal="2.550"
                                             dailyRisk="750"
                                             maxLoss="3.000"
@@ -61,11 +62,11 @@ export const Plans = () => {
                                     </CardContent>
                                 </CardUi>
                             </CarouselItem>
-                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3" data-aos='fade-left' data-aos-delay='400'>
+                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3 order-3" data-aos='fade-left' data-aos-delay='400'>
                                 <CardUi className="bg-transparent border-0">
                                     <CardContent>
                                         <Card
-                                            title="SMART 5k"
+                                            title="SMART 3k"
                                             approvalGoal="4.250"
                                             dailyRisk="1.250"
                                             maxLoss="5.000"
@@ -73,7 +74,19 @@ export const Plans = () => {
                                     </CardContent>
                                 </CardUi>
                             </CarouselItem>
-                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3" data-aos='fade-left' data-aos-delay='600'>
+                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3 order-4" data-aos='fade-left' data-aos-delay='600'>
+                                <CardUi className="bg-transparent border-0">
+                                    <CardContent>
+                                        <Card
+                                            title="SMART 5k"
+                                            approvalGoal="8.500"
+                                            dailyRisk="2.500"
+                                            maxLoss="10.000"
+                                        />
+                                    </CardContent>
+                                </CardUi>
+                            </CarouselItem>
+                            <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3 order-5" data-aos='fade-left' data-aos-delay='600'>
                                 <CardUi className="bg-transparent border-0">
                                     <CardContent>
                                         <Card

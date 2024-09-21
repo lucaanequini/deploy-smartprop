@@ -30,6 +30,14 @@ export const Card = ({ title, approvalGoal, dailyRisk, maxLoss }: CardProps) => 
                 </div>
                 <div className="flex gap-2">
                     <Check className="w-4 h-4" />
+                    <p className="text-xs">Repasse de <span className="font-bold">90% + bônus</span></p>
+                </div>
+                <div className="flex gap-2">
+                    <Check className="w-4 h-4" />
+                    <p className="text-xs">5 contratos</p>
+                </div>
+                <div className="flex gap-2">
+                    <Check className="w-4 h-4" />
                     <p className="text-xs">Até 45 dias corridos</p>
                 </div>
             </div>
