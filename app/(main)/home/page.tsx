@@ -8,6 +8,9 @@ import { Spinner } from "@/components/spinner";
 
 import authService from "@/services/authService";
 
+import { Navbar } from "./_components/navbar";
+import { Welcome } from "./_components/welcome";
+
 export default function HomePage() {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
@@ -47,8 +50,9 @@ export default function HomePage() {
     }
 
     return (
-        <div className="w-full h-screen flex flex-col gap-y-5 items-center justify-center">
-            Teste Auth
+        <div className="w-full h-screen flex flex-col gap-y-5">
+            <Navbar />
+            <Welcome />
         </div>
     )
 }
