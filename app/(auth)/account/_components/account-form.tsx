@@ -49,17 +49,22 @@ export const AccountForm = () => {
 
     const handleSubmit = async (formParams: z.infer<typeof formSchema>) => {
         setIsLoading(true)
-        const res = await authService.getRegisterParams(formParams)
-        if (res.status === 201) {
-            toast.success('Conta criada com sucesso')
-            setTimeout(() => {
-                router.push('/login')
-            }, 3000)
+        if (formParams.senha !== formParams.validateSenha) {
+            toast.error('As senhas não coincidem')
         } else {
-            toast.error('Algo deu errado, tente novamente ou contate o suporte')
+            const res = await authService.getRegisterParams(formParams)
+            if (res.status === 201) {
+                toast.success('Conta criada com sucesso')
+                setTimeout(() => {
+                    router.push('/login')
+                }, 3000)
+            } else {
+                toast.error('Algo deu errado, tente novamente ou contate o suporte')
+            }
         }
         setIsLoading(false)
     }
+
     return (
         <>
             <Toaster />
@@ -73,7 +78,7 @@ export const AccountForm = () => {
                                         <div className='flex flex-col gap-y-1'>
                                             <FormLabel className="text-light-green">Nome</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Pedro" type="text" {...field} />
+                                                <Input placeholder="Pedro" type="text" required {...field} />
                                             </FormControl>
                                         </div>
                                         <FormMessage />
@@ -84,7 +89,7 @@ export const AccountForm = () => {
                                         <div className='flex flex-col gap-y-1'>
                                             <FormLabel className="text-light-green">Sobrenome</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Silva" type="text" {...field} />
+                                                <Input placeholder="Silva" type="text" required {...field} />
                                             </FormControl>
                                         </div>
                                         <FormMessage />
@@ -96,7 +101,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">E-mail</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="pedrosilva@email.com" type="text" {...field} />
+                                            <Input placeholder="pedrosilva@email.com" type="text" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -107,7 +112,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">CPF</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="XXX.XXX.XXX-XX" type="number" {...field} />
+                                            <Input placeholder="XXX.XXX.XXX-XX" type="number" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -118,7 +123,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">Telefone</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="+55 (99) 99999-9999" type="number" {...field} />
+                                            <Input placeholder="+55 (99) 99999-9999" type="number" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -129,7 +134,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">CEP</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="XXXXX-XX" type="number" {...field} />
+                                            <Input placeholder="XXXXX-XX" type="number" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -140,7 +145,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">Usuário</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="pedrosilva" type="text" {...field} />
+                                            <Input placeholder="pedrosilva" type="text" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -152,7 +157,7 @@ export const AccountForm = () => {
                                         <div className='flex flex-col gap-y-1'>
                                             <FormLabel className="text-light-green">Senha</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="********" type="password" {...field} />
+                                                <Input placeholder="********" type="password" required {...field} />
                                             </FormControl>
                                         </div>
                                         <FormMessage />
@@ -163,7 +168,7 @@ export const AccountForm = () => {
                                         <div className='flex flex-col gap-y-1'>
                                             <FormLabel className="text-light-green">Confirme a senha</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="********" type="password" {...field} />
+                                                <Input placeholder="********" type="password" required {...field} />
                                             </FormControl>
                                         </div>
                                         <FormMessage />
