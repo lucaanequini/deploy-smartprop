@@ -2,7 +2,31 @@
 
 import { LoginForm } from "./_components/login-form";
 
+import authService from "@/services/authService";
+
+import { useRouter } from "next/navigation"
+import { useEffect } from "react";
+import { toast } from "sonner";
+
 export default function LoginPage() {
+    const router = useRouter()
+
+    const token = localStorage.getItem("smartprop-token")
+    const checkAuthToken = async () => {
+        if (token) {
+            const res = await authService.checkToken(token)
+            if (res === true) {
+                router.push("/home")
+            } else {
+                toast.error("Sessão expirada! Faça login novamente.")
+            }
+        }
+    }
+
+    useEffect(() => {
+        checkAuthToken()
+    }, [])
+
     return (
         <div className="w-full h-screen flex flex-col gap-y-5 items-center justify-center">
             <div>

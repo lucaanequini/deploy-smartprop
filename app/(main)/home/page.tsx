@@ -49,7 +49,7 @@ export default function HomePage() {
     }
 
     return (
-        <div className="w-full h-screen flex flex-col gap-y-5">
+        <div className="w-full h-screen flex flex-col gap-y-5 mt-5">
             <Welcome />
         </div>
     )
