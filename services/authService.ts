@@ -52,7 +52,6 @@ const authService = {
             return error
         })
         if (res.status === 200) {
-            console.log(res.data.valid)
             return res.data.valid
         }
     }

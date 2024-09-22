@@ -35,7 +35,6 @@ export default function HomePage() {
 
     useEffect(() => {
         if (token !== null) {
-            console.log('chegou')
             checkAuthToken()
         }
     }, [token])

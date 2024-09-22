@@ -26,6 +26,8 @@ import { useRouter } from 'next/navigation';
 import { useForm } from "react-hook-form";
 import { Spinner } from "@/components/spinner";
 
+import { toast, Toaster } from "sonner"
+
 const formSchema = z.object({
     username: z.string(),
     senha: z.string()
@@ -41,45 +43,52 @@ export const LoginForm = () => {
 
     const handleSubmit = async (formParams: z.infer<typeof formSchema>) => {
         setIsLoading(true)
-        await authService.getLoginParams(formParams)
-        router.push('/home')
+        const res = await authService.getLoginParams(formParams)
+        if (res.status === 200) {
+            router.push('/home')
+        } else {
+            toast.error('Usuário ou senha inválidos')
+        }
         setIsLoading(false)
     }
     return (
-        <div className="w-96 bg-white rounded-lg p-5">
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleSubmit)}>
-                    <div className='flex flex-col gap-y-5'>
+        <>
+            <Toaster />
+            <div className="w-96 bg-white rounded-lg p-5">
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(handleSubmit)}>
+                        <div className='flex flex-col gap-y-5'>
 
-                        <FormField control={form.control} name='username' render={({ field }) => {
-                            return <FormItem>
-                                <div className='flex flex-col gap-y-1'>
-                                    <FormLabel className="text-light-green">Usuário</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="pedrosilva" type="text" {...field} />
-                                    </FormControl>
-                                </div>
-                                <FormMessage />
-                            </FormItem>
-                        }} />
-                        <FormField control={form.control} name='senha' render={({ field }) => {
-                            return <FormItem>
-                                <div className='flex flex-col gap-y-1'>
-                                    <FormLabel className="text-light-green">Senha</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="********" type="password" {...field} />
-                                    </FormControl>
-                                </div>
-                                <FormMessage />
-                            </FormItem>
-                        }} />
-                        <div className='mx-auto'>
-                            <Button className='w-56 mx-auto mt-2' type="submit" variant="green">{isLoading ? <Spinner /> : "Enviar"}</Button>
-                            <p className='text-xs pt-1'>Não possui uma conta? <span onClick={() => router.push('/account')} className='text-light-green hover:underline hover:cursor-pointer'>Cadastre-se</span></p>
+                            <FormField control={form.control} name='username' render={({ field }) => {
+                                return <FormItem>
+                                    <div className='flex flex-col gap-y-1'>
+                                        <FormLabel className="text-light-green">Usuário</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="pedrosilva" type="text" {...field} />
+                                        </FormControl>
+                                    </div>
+                                    <FormMessage />
+                                </FormItem>
+                            }} />
+                            <FormField control={form.control} name='senha' render={({ field }) => {
+                                return <FormItem>
+                                    <div className='flex flex-col gap-y-1'>
+                                        <FormLabel className="text-light-green">Senha</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="********" type="password" {...field} />
+                                        </FormControl>
+                                    </div>
+                                    <FormMessage />
+                                </FormItem>
+                            }} />
+                            <div className='mx-auto'>
+                                <Button className='w-56 mx-auto mt-2' type="submit" variant="green">{isLoading ? <Spinner /> : "Enviar"}</Button>
+                                <p className='text-xs pt-1'>Não possui uma conta? <span onClick={() => router.push('/account')} className='text-light-green hover:underline hover:cursor-pointer'>Cadastre-se</span></p>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </Form>
-        </div>
+                    </form>
+                </Form>
+            </div>
+        </>
     )
 }
