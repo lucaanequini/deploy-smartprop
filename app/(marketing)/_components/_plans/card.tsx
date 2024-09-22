@@ -6,10 +6,11 @@ interface CardProps {
     approvalGoal: string
     dailyRisk: string
     maxLoss: string
+    contracts: number
 }
 
 
-export const Card = ({ title, approvalGoal, dailyRisk, maxLoss }: CardProps) => {
+export const Card = ({ title, approvalGoal, dailyRisk, maxLoss, contracts }: CardProps) => {
     return (
         <div className="h-[400px] w-[270px] flex flex-col justify-between bg-white rounded-xl p-5 py-10 shadow-plans">
             <div className="flex flex-col items-center gap-5">
@@ -30,15 +31,15 @@ export const Card = ({ title, approvalGoal, dailyRisk, maxLoss }: CardProps) => 
                 </div>
                 <div className="flex gap-2">
                     <Check className="w-4 h-4" />
-                    <p className="text-xs">Repasse de <span className="font-bold">90% + bônus</span></p>
-                </div>
-                <div className="flex gap-2">
-                    <Check className="w-4 h-4" />
-                    <p className="text-xs">5 contratos</p>
+                    <p className="text-xs">Repasse de <span className="font-bold">90% + Bônus</span></p>
                 </div>
                 <div className="flex gap-2">
                     <Check className="w-4 h-4" />
                     <p className="text-xs">Até 45 dias corridos</p>
+                </div>
+                <div className="flex gap-2">
+                    <Check className="w-4 h-4" />
+                    <p className="text-xs">{contracts} contratos</p>
                 </div>
             </div>
             <Button variant='green' className="shadow-3xl rounded-xl">Contratar</Button>

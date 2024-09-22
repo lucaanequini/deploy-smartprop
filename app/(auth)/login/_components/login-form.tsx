@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from "react";
+
 import { z } from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -22,6 +24,7 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 
 import { useForm } from "react-hook-form";
+import { Spinner } from "@/components/spinner";
 
 const formSchema = z.object({
     username: z.string(),
@@ -30,16 +33,17 @@ const formSchema = z.object({
 
 export const LoginForm = () => {
     const router = useRouter()
+    const [isLoading, setIsLoading] = useState(false)
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema)
     });
 
     const handleSubmit = async (formParams: z.infer<typeof formSchema>) => {
-        const { data, params } = await authService.getLoginParams(formParams)
-
-        if (data && data.status === 201) {
-            router.push('/home')
-        }
+        setIsLoading(true)
+        await authService.getLoginParams(formParams)
+        router.push('/home')
+        setIsLoading(false)
     }
     return (
         <div className="w-96 bg-white rounded-lg p-5">
@@ -70,7 +74,7 @@ export const LoginForm = () => {
                             </FormItem>
                         }} />
                         <div className='mx-auto'>
-                            <Button className='w-56 mx-auto mt-2' type="submit" variant="green" onClick={() => router.push("/home")}>Enviar</Button>
+                            <Button className='w-56 mx-auto mt-2' type="submit" variant="green">{isLoading ? <Spinner /> : "Enviar"}</Button>
                             <p className='text-xs pt-1'>Não possui uma conta? <span onClick={() => router.push('/account')} className='text-light-green hover:underline hover:cursor-pointer'>Cadastre-se</span></p>
                         </div>
                     </div>

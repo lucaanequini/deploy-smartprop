@@ -1,7 +1,4 @@
 import api from "./api"
-import * as jose from 'jose'
-
-import { cookies } from 'next/headers'
 
 interface RegisterParams {
     nome: string
@@ -29,8 +26,6 @@ const authService = {
             }
             return error
         })
-        console.log(res)
-        console.log(params)
         return res
     },
     getLoginParams: async (params: LoginParams) => {
@@ -42,7 +37,6 @@ const authService = {
         })
         if (res.status === 200) {
             localStorage.setItem("smartprop-token", res.data.access_token);
-            console.log(res.data)
         }
         return res
     },
@@ -52,7 +46,7 @@ const authService = {
                 Authorization: `Bearer ${token}`
             }
         }).catch(error => {
-            if (error.response.status === 401){
+            if (error.response.status === 401) {
                 return error.response
             }
             return error

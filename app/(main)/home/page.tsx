@@ -11,28 +11,32 @@ import authService from "@/services/authService";
 export default function HomePage() {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
+    const [token, setToken] = useState<string | null>(null)
+
     useEffect(() => {
-        const checkAuthToken = async () => {
-            const token = localStorage.getItem("smartprop-token")
-            if (token !== null) {
-                const res = await authService.checkToken(token)
-                console.log(res)
-                if (res == true) {
-                    router.push('/home')
-                    setLoading(false)
-                } else {
-                    setLoading(false)
-                    console.log('Token inválido')
-                    router.push("/login")
-                }
-            } else {
-                setLoading(false)
-                router.push("/login")
-                console.log('Token inválido')
-            }
-        }
-        checkAuthToken()
+        const storedToken = localStorage.getItem("smartprop-token")
+        setToken(storedToken)
     }, [])
+
+    const checkAuthToken = async () => {
+        if (token) {
+            const res = await authService.checkToken(token)
+            if (res === false) {
+                router.push("/login")
+            }
+        } else {
+            router.push("/login")
+        }
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        if (token !== null) {
+            console.log('chegou')
+            checkAuthToken()
+        }
+    }, [token])
+
 
     if (loading) {
         return (
