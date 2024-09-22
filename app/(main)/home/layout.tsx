@@ -1,3 +1,5 @@
+import { Navbar } from './_components/navbar'
+
 export default function MainLayout({
     children,
 }: Readonly<{
@@ -5,7 +7,10 @@ export default function MainLayout({
 }>) {
     return (
         <html lang="pt-br">
-            <body className="bg-slate-50">{children}</body>
+            <body className="bg-slate-50">
+                <Navbar />
+                {children}
+            </body>
         </html>
     );
 }

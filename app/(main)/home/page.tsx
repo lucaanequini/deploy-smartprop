@@ -50,7 +50,6 @@ export default function HomePage() {
 
     return (
         <div className="w-full h-screen flex flex-col gap-y-5">
-            <Navbar />
             <Welcome />
         </div>
     )
