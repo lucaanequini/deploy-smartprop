@@ -11,7 +11,7 @@ import { toast } from "sonner";
 export default function LoginPage() {
     const router = useRouter()
 
-    const token = localStorage.getItem("smartprop-token")
+    const token = typeof window !== 'undefined' ? localStorage.getItem("smartprop-token") : null;
     const checkAuthToken = async () => {
         if (token) {
             const res = await authService.checkToken(token)
