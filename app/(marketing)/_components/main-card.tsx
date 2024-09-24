@@ -2,7 +2,7 @@ import { CalendarClock, DollarSign, LoaderCircle } from "lucide-react"
 
 export const MainCard = () => {
     return (
-        <div className="bg-white flex flex-col gap-y-5 gap-x-10 sm:flex-row sm:gap-x-5 mx-5 xl:mx-40 rounded-2xl p-5 justify-between mb-10 -mt-5 lg:-mt-10 shadow-bottom lg:py-9"
+        <div className="bg-white flex flex-col gap-y-5 gap-x-10 sm:flex-row sm:gap-x-5 mx-5 xl:mx-40 rounded-2xl -mt-5 p-5 justify-between mb-10 lg:-mt-10 shadow-bottom lg:py-9"
             data-aos='fade-up'>
             <div className="flex flex-col">
                 <div className="flex gap-x-4 mb-2">
