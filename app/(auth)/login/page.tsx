@@ -5,19 +5,25 @@ import { LoginForm } from "./_components/login-form";
 import authService from "@/services/authService";
 
 import { useRouter } from "next/navigation"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function LoginPage() {
     const router = useRouter()
-
+    const [userId, setUserId] = useState<string>("");
     const token = typeof window !== 'undefined' ? localStorage.getItem("smartprop-token") : null;
     const checkAuthToken = async () => {
         if (token) {
-            const res = await authService.checkToken(token)
-            if (res === true) {
-                router.push("/home")
-            } else {
+            try {
+                const res = await authService.checkToken(token)
+                console.log(res)
+                if (res.data.valid === true) {
+                    setUserId(res.data.user_id)
+                    router.push(`/${res.data.user_id}/home`)
+                } else {
+                    toast.error("Sessão expirada! Faça login novamente.")
+                }
+            } catch (error) {
                 toast.error("Sessão expirada! Faça login novamente.")
             }
         }
@@ -32,7 +38,7 @@ export default function LoginPage() {
             <div>
                 <img src="/logo.png" alt="Logo" className="w-20 h-13" />
             </div>
-            <LoginForm />
+            <LoginForm userId={userId} />
         </div>
     )
 }

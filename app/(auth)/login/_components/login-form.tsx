@@ -28,12 +28,16 @@ import { Spinner } from "@/components/spinner";
 
 import { toast, Toaster } from "sonner"
 
+interface LoginFormProps {
+    userId: string
+}
+
 const formSchema = z.object({
     username: z.string(),
     senha: z.string()
 })
 
-export const LoginForm = () => {
+export const LoginForm = ({ userId }: LoginFormProps) => {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -45,7 +49,8 @@ export const LoginForm = () => {
         setIsLoading(true)
         const res = await authService.getLoginParams(formParams)
         if (res.status === 200) {
-            router.push('/home')
+            console.log(userId)
+            router.push(`/${res.data.user_id}/home`)
         } else {
             toast.error('Usuário ou senha inválidos')
         }

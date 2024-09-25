@@ -53,7 +53,7 @@ const authService = {
             return error
         })
         if (res.status === 200) {
-            return res.data.valid
+            return res
         }
     }
 }
