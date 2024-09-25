@@ -23,8 +23,16 @@ export default function HomePage() {
 
     const checkAuthToken = async () => {
         if (token) {
-            const res = await authService.checkToken(token)
-            if (res === false) {
+            try {
+                const res = await authService.checkToken(token)
+                if (res.error) {
+                    router.push("/login")
+                }
+                if (res === false) {
+                    router.push("/login")
+                }
+            } catch (error) {
+                console.error("Error checking token:", error)
                 router.push("/login")
             }
         } else {

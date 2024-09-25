@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation"
 import api from "./api"
 
 interface RegisterParams {
