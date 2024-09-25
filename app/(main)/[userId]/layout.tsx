@@ -7,9 +7,11 @@ export default function MainLayout({
 }>) {
     return (
         <html lang="pt-br">
-            <body className="bg-slate-50">
-                <Navbar />
-                {children}
+            <body>
+                <div className='bg-slate-50'>
+                    <Navbar />
+                    {children}
+                </div>
             </body>
         </html>
     );

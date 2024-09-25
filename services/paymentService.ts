@@ -20,7 +20,7 @@ const paymentService = {
         });
         
         if (res && res.status === 201) {
-            window.location.href = res.data.payment_link;
+            return res;
         }
     }
 }

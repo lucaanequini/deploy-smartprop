@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 
 import { useRouter } from "next/navigation";
 
-const DeniedPage = () => {
+const DeniedPage = ({
+    params
+}: {
+    params: { userId: string }
+}) => {
     const router = useRouter()
     return (
         <div className="w-full mt-40 flex flex-col sm:flex-row gap-20 justify-center items-center mx-8">
@@ -13,7 +17,7 @@ const DeniedPage = () => {
                 <p className="text-3xl sm:text-5xl font-bold text-white leading-snug">Sua compra não foi aprovada!</p>
                 <p className="text-white">Toda a sua grana permanece intacta, segura e sonolenta na sua conta. Sim, nenhuma moedinha foi para a aventura desta vez.</p>
                 <div className="flex flex-col items-center sm:flex-row gap-3">
-                    <Button className="rounded-3xl w-44 mt-3 bg-white text-light-green hover:border border-white hover:bg-transparent hover:text-white" onClick={() => router.push('/')}>Voltar</Button>
+                    <Button className="rounded-3xl w-44 mt-3 bg-white text-light-green hover:border border-white hover:bg-transparent hover:text-white" onClick={() => router.push(`/${params.userId}/home`)}>Voltar</Button>
                     <Button variant="green" className="rounded-3xl w-44 mt-3" onClick={() => router.push('/')}>Tente novamente</Button>
                 </div>
             </div>

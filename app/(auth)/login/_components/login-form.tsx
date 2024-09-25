@@ -34,7 +34,7 @@ interface LoginFormProps {
 
 const formSchema = z.object({
     username: z.string(),
-    senha: z.string()
+    senha: z.string(),
 })
 
 export const LoginForm = ({ userId }: LoginFormProps) => {
@@ -42,7 +42,11 @@ export const LoginForm = ({ userId }: LoginFormProps) => {
     const [isLoading, setIsLoading] = useState(false)
 
     const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema)
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            username: '',
+            senha: ''
+        }
     });
 
     const handleSubmit = async (formParams: z.infer<typeof formSchema>) => {
@@ -58,8 +62,7 @@ export const LoginForm = ({ userId }: LoginFormProps) => {
     }
     return (
         <>
-            <Toaster />
-            <div className="w-96 bg-white rounded-lg p-5">
+            <div className="w-80 sm:w-96 bg-white rounded-lg p-5">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(handleSubmit)}>
                         <div className='flex flex-col gap-y-5'>
@@ -94,6 +97,7 @@ export const LoginForm = ({ userId }: LoginFormProps) => {
                     </form>
                 </Form>
             </div>
+            <Toaster />
         </>
     )
 }

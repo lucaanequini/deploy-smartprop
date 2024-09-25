@@ -44,7 +44,18 @@ export const AccountForm = () => {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema)
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            nome: '',
+            sobrenome: '',
+            cpf: '',
+            email: '',
+            telefone: '',
+            cep: '',
+            senha: '',
+            validateSenha: '',
+            username: ''
+        }
     });
 
     const handleSubmit = async (formParams: z.infer<typeof formSchema>) => {
@@ -67,8 +78,7 @@ export const AccountForm = () => {
 
     return (
         <>
-            <Toaster />
-            <div className="w-96 bg-white rounded-lg p-5">
+            <div className="w-80 sm:w-96 bg-white rounded-lg p-5">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(handleSubmit)}>
                         <div className='flex flex-col gap-y-5'>
@@ -183,6 +193,7 @@ export const AccountForm = () => {
                     </form>
                 </Form>
             </div>
+            <Toaster />
         </>
     )
 }

@@ -25,6 +25,7 @@ const authService = {
             if (error.response && error.response.status !== 201) {
                 return error.response
             }
+            console.log(error)
             return error
         })
         return res
