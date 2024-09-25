@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = process.env.NEXT_PUBLIC_BASEURL;
+const baseURL = "http://127.0.0.1:5000";
 
 if (!baseURL) {
     console.error("A baseURL não está definida.");
@@ -8,6 +8,6 @@ if (!baseURL) {
 
 const api = axios.create({ baseURL });
 
-console.log(api);  // Verifique se o objeto `api` tem o método `post`.
+console.log(api);
 
 export default api;
