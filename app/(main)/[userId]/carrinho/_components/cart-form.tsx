@@ -19,6 +19,7 @@ import {
     FormControl,
     FormField,
     FormItem,
+    FormLabel
 } from "@/components/ui/form"
 
 import { Button } from "@/components/ui/button";
@@ -67,10 +68,11 @@ const FormSchemaTwo = z.object({
 
 interface CartFormProps {
     userId: string
+    onPlanChange: (plan: string) => void
 }
 
 
-export const CartForm = ({ userId }: CartFormProps) => {
+export const CartForm = ({ userId, onPlanChange }: CartFormProps) => {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema)
     });
@@ -132,7 +134,7 @@ export const CartForm = ({ userId }: CartFormProps) => {
     }
 
     return (
-        <div className="w-full h-screen flex items-center justify-center">
+        <div className="flex items-center justify-center">
             <div className="w-80 sm:w-96 bg-white rounded-lg p-5 flex flex-col justify-center gap-y-5">
                 <div className="font-semibold text-black pb-3 border-b border-dashed border-light-gray">Plano / Plataforma</div>
                 <Form {...form}>
@@ -143,7 +145,11 @@ export const CartForm = ({ userId }: CartFormProps) => {
                                 name="plano"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={(value) => {
+                                            field.onChange(value)
+                                            onPlanChange(value)
+                                        }}
+                                            defaultValue={field.value}>
                                             <FormControl>
                                                 <SelectTrigger>
                                                     <SelectValue placeholder="Plano" />
@@ -164,7 +170,7 @@ export const CartForm = ({ userId }: CartFormProps) => {
                                 )}
                             />
                             <div className="flex items-center">
-                                <p>R$ {planoValores[form.watch("plano") as keyof typeof planoValores] || ""}</p>
+                                <p>R$ {planoValores[form.watch("plano") as keyof typeof planoValores] || "0"}</p>
                             </div>
                         </div>
                         <div className="w-full flex justify-between items-center py-5 border-b border-dashed border-light-gray">
@@ -191,7 +197,7 @@ export const CartForm = ({ userId }: CartFormProps) => {
                                 )}
                             />
                             <div className="flex items-center">
-                                <p>R$ {plataformaValores[form.watch("plataforma") as keyof typeof plataformaValores] || ""}</p>
+                                <p>R$ {plataformaValores[form.watch("plataforma") as keyof typeof plataformaValores] || "0"}</p>
                             </div>
                         </div>
                         <div className="flex justify-between items-center py-5">
@@ -212,18 +218,21 @@ export const CartForm = ({ userId }: CartFormProps) => {
                 </Form>
                 {!coupon ? (
                     <Form {...formTwo}>
-                        <form onSubmit={formTwo.handleSubmit(onSubmitTwo)} className="flex gap-x-2 items-center">
-                            <FormField
-                                control={formTwo.control}
-                                name="coupon"
-                                render={({ field }) => (
-                                    <FormItem className="w-full">
-                                        <FormControl>
-                                            <Input type="text" {...field} />
-                                        </FormControl>
-                                    </FormItem>
-                                )}
-                            />
+                        <form onSubmit={formTwo.handleSubmit(onSubmitTwo)} className="flex gap-x-2 items-end">
+                            <div className="w-full">
+                                <FormLabel>Cupom:</FormLabel>
+                                <FormField
+                                    control={formTwo.control}
+                                    name="coupon"
+                                    render={({ field }) => (
+                                        <FormItem className="w-full">
+                                            <FormControl>
+                                                <Input type="text" {...field} />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
                             <Button type="submit" variant="green" className="w-20">
                                 {isLoading ? <Spinner /> : "Aplicar"}
                             </Button>
@@ -231,9 +240,12 @@ export const CartForm = ({ userId }: CartFormProps) => {
                     </Form>
                 ) : (
                     <div className="flex justify-between items-center rounded-lg border border-gray-300 p-2">
-                        <p>Cupom: {coupon}</p>
-                        <p>{couponValue}%</p>
-                        <X className="cursor-pointer text-gray-300 hover:text-red-600" onClick={() => { setCoupon(undefined); setCouponValue(0); }} />
+
+                        <p>{coupon}</p>
+                        <div className="flex gap-x-2 items-center">
+                            <p>{couponValue}%</p>
+                            <X className="cursor-pointer text-gray-300 hover:text-red-600" onClick={() => { setCoupon(undefined); setCouponValue(0); }} />
+                        </div>
                     </div>
                 )}
             </div>

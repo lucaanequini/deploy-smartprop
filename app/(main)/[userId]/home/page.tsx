@@ -67,29 +67,27 @@ export default function HomePage({
     }
 
     return (
-        <div className="h-screen">
+        <div className="w-full h-full sm:h-screen flex flex-col bg-slate-50">
             <Navbar />
-            <div className="w-full h-full sm:h-screen flex flex-col bg-slate-50">
-                {loading &&
-                    <div className="w-full flex justify-center mt-5">
-                        <Spinner />
+            {loading &&
+                <div className="w-full flex justify-center mt-5">
+                    <Spinner />
+                </div>
+            }
+            {userInfo && !loading &&
+                <>
+                    <Welcome userId={params.userId} userName={userInfo} />
+                    <div className="w-full p-5">
+                        {loadingTable ? (
+                            <div className="flex justify-center">
+                                <Spinner />
+                            </div>
+                        ) : (
+                            <DataTable columns={columns} data={userExams} searchKey="description" />
+                        )}
                     </div>
-                }
-                {userInfo && !loading &&
-                    <>
-                        <Welcome userId={params.userId} userName={userInfo} />
-                        <div className="w-full p-5">
-                            {loadingTable ? (
-                                <div className="flex justify-center">
-                                    <Spinner />
-                                </div>
-                            ) : (
-                                <DataTable columns={columns} data={userExams} searchKey="description" />
-                            )}
-                        </div>
-                    </>
-                }
-            </div>
+                </>
+            }
         </div>
     )
 }

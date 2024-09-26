@@ -1,7 +1,7 @@
 'use client'
 
 import { MainContent } from "./_components/main-content"
-import { Plans } from "./_components/_plans/plans"
+import { Plans } from "./_components/plans"
 import { Features } from "./_components/features"
 import { Faq } from "./_components/faq"
 import { Contact } from "./_components/contact"

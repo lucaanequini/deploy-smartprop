@@ -11,24 +11,29 @@ interface CardProps {
     maxLoss: string
     contracts: number
     recomended?: boolean
+    onCart?: boolean
 }
 
 
-export const Card = ({ title, value, approvalGoal, dailyRisk, maxLoss, contracts, recomended }: CardProps) => {
+export const PlanCard = ({ title, value, approvalGoal, dailyRisk, maxLoss, contracts, recomended, onCart }: CardProps) => {
     return (
         <>
-            {recomended && (
-                <p className="absolute text-white py-1 px-5 -mt-4 text-sm bg-light-green rounded-xl w-36 left-1/2 transform -translate-x-1/2">Recomendado</p>
-            )}
-            <div className={cn(`h-[400px] w-[270px] flex flex-col justify-between bg-white rounded-xl p-5 py-10 shadow-plans`,
-                recomended && `border-4 border-light-green`
+
+            <div className={cn(`h-[400px] flex flex-col justify-between bg-white rounded-xl p-5 py-10 shadow-plans`,
+                recomended && `border-4 border-light-green`,
+                onCart ? 'w-[320px] sm:w-[270px] h-[280px] items-center sm:items-start sm:h-[425px]' : 'h-[400px] w-[270px]'
             )}>
+                {recomended && (
+                    <p className="fixed text-white py-1 px-5 -mt-14 ml-10 text-sm bg-light-green rounded-xl w-36">Recomendado</p>
+                )}
                 <div className="flex flex-col items-center gap-5">
                     <p className="tracking-widest font-bold text-dark-green text-3xl">{title}</p>
-                    <div className="flex items-center text-dark-green gap-1">
-                        <p className=" font-semibold">R$</p>
-                        <span className="font-bold">{value}</span>
-                    </div>
+                    {!onCart && (
+                        <div className="flex items-center text-dark-green gap-1">
+                            <p className=" font-semibold">R$</p>
+                            <span className="font-bold">{value}</span>
+                        </div>
+                    )}
                 </div>
                 <div className="flex flex-col gap-y-2 text-black">
                     <div className="flex gap-2">
@@ -56,7 +61,7 @@ export const Card = ({ title, value, approvalGoal, dailyRisk, maxLoss, contracts
                         <p className="text-xs">{contracts} contratos</p>
                     </div>
                 </div>
-                <Button variant='green' className="shadow-3xl rounded-xl">Contratar</Button>
+                {!onCart && <Button variant='green' className="shadow-3xl rounded-xl">Contratar</Button>}
             </div>
         </>
     )
