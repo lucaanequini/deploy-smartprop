@@ -1,5 +1,8 @@
 import { Check } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
+
+import { useRouter } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 
@@ -14,8 +17,8 @@ interface CardProps {
     onCart?: boolean
 }
 
-
 export const PlanCard = ({ title, value, approvalGoal, dailyRisk, maxLoss, contracts, recomended, onCart }: CardProps) => {
+    const router = useRouter()
     return (
         <>
 
@@ -61,7 +64,7 @@ export const PlanCard = ({ title, value, approvalGoal, dailyRisk, maxLoss, contr
                         <p className="text-xs">{contracts} contratos</p>
                     </div>
                 </div>
-                {!onCart && <Button variant='green' className="shadow-3xl rounded-xl">Contratar</Button>}
+                {!onCart && <Button variant='green' onClick={() => router.push('/login')} className="shadow-3xl rounded-xl">Contratar</Button>}
             </div>
         </>
     )
