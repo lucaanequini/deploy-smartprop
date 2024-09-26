@@ -2,6 +2,10 @@ import { Button } from "@/components/ui/button"
 import { MessageCircle } from "lucide-react"
 
 export const Contact = () => {
+    const toWpp = () => {
+        window.open('https://wa.me/5511976758822', '_blank')
+    }
+
     return (
         <div className="h-screen flex items-center px-5 sm:px-9 xl:px-10" id="contato">
             <div className="bg-white w-[1100px] mx-auto rounded-3xl flex flex-col xs:flex-row items-center justify-center">
@@ -13,8 +17,8 @@ export const Contact = () => {
                     <p>
                         Temos profissionais de excelência ao seu dispor!
                     </p>
-                    <Button variant='green' className="flex border-2 sm:py-4 md:py-7 sm:text-xl md:text-2xl font-medium gap-x-3 w-44 sm:w-60 md:w-72 rounded-full shadow-3xl">
-                        Chamar no WPP <MessageCircle className='h-4 w-4 md:h-6 md:w-6' strokeWidth={3} />
+                    <Button variant='green' className="flex border-2 sm:py-4 md:py-7 sm:text-xl md:text-2xl font-medium gap-x-3 w-56 sm:w-72 md:w-96 rounded-full shadow-3xl" onClick={toWpp}>
+                        Chamar no WhatsApp <MessageCircle className='h-4 w-4 md:h-6 md:w-6' strokeWidth={3} />
                     </Button>
                 </div>
                 <img src="/hand.png" alt="Hand" className="h-full w-56 pr-2 sm:pr-0 sm:w-60 md:w-72" />

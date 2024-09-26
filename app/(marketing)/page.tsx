@@ -9,6 +9,7 @@ import { Footer } from "./_components/footer"
 import { useEffect } from "react"
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ContactTab } from "./_components/contact-tab"
 
 export default function Home() {
     useEffect(() => {
@@ -27,6 +28,7 @@ export default function Home() {
                 <Contact />
                 <Footer />
             </div>
+            <ContactTab />
         </div>
     )
 }

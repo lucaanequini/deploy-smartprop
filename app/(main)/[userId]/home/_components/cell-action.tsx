@@ -1,11 +1,13 @@
 'use client'
 
 import { Pencil } from "lucide-react"
+
 import { useState } from "react"
 
 import userService from "@/services/userService"
 
 import { Button } from "@/components/ui/button"
+
 import { AlertModal } from "@/components/modals/status-modal"
 
 import { toast, Toaster } from "sonner"
@@ -29,8 +31,8 @@ export const CellAction: React.FC<CellActionProps> = ({
             if (token) {
                 const res = await userService.setDateExam(data.id, token)
                 if (res.status === 200) {
-                    console.log('concluido')
                     toast.success(res.data.message)
+                    window.location.reload();
                 }
 
             }
