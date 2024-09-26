@@ -41,6 +41,7 @@ export const Info = () => {
                     </div>
                 </div>
             </div>
+            <div id="info"></div>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react"
 
 export const Contact = () => {
     return (
-        <div className="h-screen flex items-center px-5 sm:px-9 xl:px-10">
+        <div className="h-screen flex items-center px-5 sm:px-9 xl:px-10" id="contato">
             <div className="bg-white w-[1100px] mx-auto rounded-3xl flex flex-col xs:flex-row items-center justify-center">
                 <div className="flex flex-col justify-center gap-5 p-7 xs:max-w-[60%] sm:max-w-[56%] z-10">
                     <p className="text-xl sm:text-2xl md:text-4xl font-medium text-black">

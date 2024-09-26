@@ -7,7 +7,7 @@ import {
 
 export const Faq = () => {
     return (
-        <div className="h-screen flex flex-col justify-center items-center bg-white">
+        <div className="h-screen flex flex-col justify-center items-center bg-white" id="faq">
             <div className="bg-cover absolute left-0 mt-52">
                 <img src="/circulo.png" className="w-40 h-80" alt="Circulo" />
             </div>

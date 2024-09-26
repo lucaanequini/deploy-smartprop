@@ -5,7 +5,7 @@ import { CarouselPlans } from "@/components/carousel-plans"
 
 export const Plans = () => {
     return (
-        <div className="h-screen flex flex-col justify-center items-center gap-16 xl:gap-20" data-aos='fade-in'>
+        <div className="h-screen flex flex-col justify-center items-center gap-16 xl:gap-20" data-aos='fade-in' id="planos">
             <div className="flex flex-col gap-y-3 items-center justify-center p-3">
                 <p className="text-light-green text-3xl xl:text-5xl font-semibold">Nossos Planos</p>
             </div>
