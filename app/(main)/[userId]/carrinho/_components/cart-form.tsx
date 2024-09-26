@@ -110,11 +110,11 @@ export const CartForm = ({ userId }: CartFormProps) => {
         if (token) {
             try {
                 const res = await paymentService.checkCoupon(token, coupon)
-                if (res.data.exists === true && res.data.coupon.remaining_uses > 0) {
+                if (res.data.exists === true && res.data.coupon.remaining_uses > 0 && res.data.coupon.end_date > new Date().toISOString()) {
                     setCoupon(res.data.coupon.code)
                     setCouponValue(res.data.coupon.discount_percentage)
                 } else {
-                    toast.error('Cupom inválido')
+                    toast.error('Cupom expirado!')
                 }
             } catch (error) {
                 toast.error('Cupom inválido')
