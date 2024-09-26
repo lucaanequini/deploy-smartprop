@@ -96,7 +96,7 @@ export const CartForm = ({ userId }: CartFormProps) => {
             try {
                 const res = await paymentService.createPayment(token, userId, product, coupon)
                 if (res.status === 201) {
-                    window.open(res.payment_link, '_blank')
+                    window.open(res.data.payment_link, '_blank')
                 }
             } catch (error) {
                 console.log(error)

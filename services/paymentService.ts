@@ -19,6 +19,7 @@ const paymentService = {
         });
         
         if (res && res.status === 201) {
+            console.log(res)
             return res;
         }
     },
