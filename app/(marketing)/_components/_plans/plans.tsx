@@ -30,7 +30,7 @@ export const Plans = () => {
                     <div data-aos-delay='200'>
                         <Card title="SMART 2k" value="500,00" approvalGoal="2.000" dailyRisk="500" maxLoss="2.000" contracts={10} />
                     </div>
-                    <div><Card title="SMART 3k" value="750,00" approvalGoal="3.000" dailyRisk="750" maxLoss="3.000" contracts={15} /></div>
+                    <div><Card recomended title="SMART 3k" value="750,00" approvalGoal="3.000" dailyRisk="750" maxLoss="3.000" contracts={15} /></div>
                     <div><Card title="SMART 5k" value="1150,00" approvalGoal="5.000" dailyRisk="1.250" maxLoss="5.000" contracts={25} /></div>
                     <div><Card title="SMART 10k" value="2500,00" approvalGoal="10.000" dailyRisk="2.500" maxLoss="10.000" contracts={50} /></div>
                 </div>

@@ -19,12 +19,11 @@ import {
     FormControl,
     FormField,
     FormItem,
-    FormLabel
 } from "@/components/ui/form"
 
 import { Button } from "@/components/ui/button";
 
-import { set, z } from "zod"
+import { z } from "zod"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -35,6 +34,7 @@ import { toast, Toaster } from "sonner";
 import paymentService from "@/services/paymentService";
 
 import { useState } from "react";
+
 import { X } from "lucide-react";
 
 const planoValores = {

@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react"
 
-import { useRouter } from "next/navigation"
-
 import { Spinner } from "@/components/spinner";
 
 import { Welcome } from "./_components/welcome";
@@ -11,16 +9,18 @@ import { Welcome } from "./_components/welcome";
 import userService from "@/services/userService";
 
 import { Navbar } from "@/components/navbar";
+
 import { DataTable } from "@/components/ui/data-table";
-import { columns } from "./_components/columns";
-import { set } from "zod";
+
+import { columns, ExamColumn } from "./_components/columns";
 
 export default function HomePage({
     params
 }: { params: { userId: string } }) {
     const [loading, setLoading] = useState(true)
+    const [loadingTable, setLoadingTable] = useState(true)
     const [userInfo, setUserInfo] = useState('')
-    const [userExams, setUserExams] = useState([])
+    const [userExams, setUserExams] = useState<ExamColumn[]>([])
 
     const token = typeof window !== 'undefined' ? localStorage.getItem("smartprop-token") : null;
 
@@ -47,17 +47,27 @@ export default function HomePage({
                 const res = await userService.getUserExams(params.userId, token)
                 if (res.status === 200) {
                     console.log('chegou')
-                    setUserExams(res.data.products)
+                    const formattedRes: ExamColumn[] = res.data.products.map((exam: any) => ({
+                        id: exam.id,
+                        description: exam.description,
+                        createdAt: new Date(exam.created_at).toLocaleDateString(),
+                        statusDetails: exam.status_details,
+                        platform: exam.platform_name,
+                        initDate: new Date(exam.start_date).toLocaleDateString(),
+                        endDate: new Date(exam.end_date).toLocaleDateString()
+                    }))
+                    setUserExams(formattedRes)
                 }
             } catch (error) {
                 console.log(error)
+            } finally {
+                setLoadingTable(false)
             }
-            setLoading(false)
         }
     }
 
     return (
-        <>
+        <div className="h-screen">
             <Navbar />
             <div className="w-full h-full sm:h-screen flex flex-col bg-slate-50">
                 {loading &&
@@ -68,12 +78,18 @@ export default function HomePage({
                 {userInfo && !loading &&
                     <>
                         <Welcome userId={params.userId} userName={userInfo} />
-                        <div className="p-5">
-                            <DataTable columns={columns} data={userExams} searchKey="description" />
+                        <div className="w-full p-5">
+                            {loadingTable ? (
+                                <div className="flex justify-center">
+                                    <Spinner />
+                                </div>
+                            ) : (
+                                <DataTable columns={columns} data={userExams} searchKey="description" />
+                            )}
                         </div>
                     </>
                 }
             </div>
-        </>
+        </div>
     )
 }

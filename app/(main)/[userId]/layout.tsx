@@ -41,7 +41,7 @@ export default function MainLayout({
             router.push("/login");
         }
         setLoading(false);
-    }, []);
+    }, [router, token]);
 
     if (loading) {
         return (
@@ -52,6 +52,8 @@ export default function MainLayout({
     }
 
     return (
-        <section>{children}</section>
+        <section>
+            {children}
+        </section>
     );
 }
