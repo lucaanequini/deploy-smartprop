@@ -2,11 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 
+import { useRouter } from "next/router";
+
 const Error = () => {
+    const router = useRouter()
     return (
-        <div className="h-screen flex items-center justify-center">
-            <p className="text-4xl font-bold">Algo deu errado!</p>
-            <Button variant='green'>Voltar</Button>
+        <div className="h-screen flex flex-col gap-y-5 items-center justify-center">
+            <p className="text-4xl font-bold text-white">Algo deu errado!</p>
+            <Button variant='green' onClick={() => router.push('/')}>Voltar</Button>
         </div>
     )
 }

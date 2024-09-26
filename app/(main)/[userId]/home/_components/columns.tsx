@@ -2,45 +2,23 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 
-export type ProductColumn = {
-    id: string
-    name: string
-    price: string
-    category: string
-    color: string
-    isFeatured: boolean
-    isArchived: boolean
+export type ExamColumn = {
+    description: string
     createdAt: string
-    quantity: string
+    statusDetails: string
 }
 
-export const columns: ColumnDef<ProductColumn>[] = [
+export const columns: ColumnDef<ExamColumn>[] = [
     {
-        accessorKey: "name",
-        header: "Name",
+        accessorKey: "description",
+        header: "Plano",
     },
     {
-        accessorKey: "isArchived",
-        header: "Archived",
+        accessorKey: "status_details",
+        header: "Status",
     },
     {
-        accessorKey: "isFeatured",
-        header: "Featured",
-    },
-    {
-        accessorKey: "price",
-        header: "Price",
-    },
-    {
-        accessorKey: "category",
-        header: "Category",
-    },
-    {
-        accessorKey: "quantity",
-        header: "Quantity",
-    },
-    {
-        accessorKey: "createdAt",
-        header: "Date",
+        accessorKey: "created_at",
+        header: "Data",
     }
 ]

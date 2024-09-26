@@ -217,7 +217,7 @@ export const CartForm = ({ userId }: CartFormProps) => {
                                 control={formTwo.control}
                                 name="coupon"
                                 render={({ field }) => (
-                                    <FormItem>
+                                    <FormItem className="w-full">
                                         <FormControl>
                                             <Input type="text" {...field} />
                                         </FormControl>
@@ -230,10 +230,10 @@ export const CartForm = ({ userId }: CartFormProps) => {
                         </form>
                     </Form>
                 ) : (
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center rounded-lg border border-gray-300 p-2">
                         <p>Cupom: {coupon}</p>
                         <p>{couponValue}%</p>
-                        <X className="cursor-pointer" onClick={() => { setCoupon(undefined); setCouponValue(0); }} />
+                        <X className="cursor-pointer text-gray-300 hover:text-red-600" onClick={() => { setCoupon(undefined); setCouponValue(0); }} />
                     </div>
                 )}
             </div>

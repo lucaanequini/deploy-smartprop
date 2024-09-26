@@ -52,10 +52,6 @@ export default function MainLayout({
     }
 
     return (
-        <html lang="pt-br">
-            <body>
-                {children}
-            </body>
-        </html>
+        <section>{children}</section>
     );
 }
