@@ -36,11 +36,11 @@ export const Navbar = () => {
             <div className="flex justify-between px-5 sm:px-10 lg:px-16 py-1 gap-5">
                 <img src="/logo.png" alt="Logo" className="w-17 h-11" />
                 <div className="md:flex justify-end items-center md:gap-x-8 lg:gap-x-16 text-light-green text-sm font-semibold hidden">
-                    <a className="hover:text-light-green/50" onClick={() => scrollToSection('info')}>Sobre nós</a>
-                    <a className="hover:text-light-green/50" onClick={() => scrollToSection('planos')}>Planos</a>
-                    <a className="hover:text-light-green/50" onClick={() => scrollToSection('faq')}>FAQ&apos;s</a>
-                    <a className="hover:text-light-green/50" onClick={() => scrollToSection('contato')}>Contato</a>
-                    <Link className="hover:text-light-green/50" href='/login'>Área do Trader</Link>
+                    <a className="hover:text-light-green/50 cursor-pointer" onClick={() => scrollToSection('info')}>Sobre nós</a>
+                    <a className="hover:text-light-green/50 cursor-pointer" onClick={() => scrollToSection('planos')}>Planos</a>
+                    <a className="hover:text-light-green/50 cursor-pointer" onClick={() => scrollToSection('faq')}>FAQ&apos;s</a>
+                    <a className="hover:text-light-green/50 cursor-pointer" onClick={() => scrollToSection('contato')}>Contato</a>
+                    <Link className="hover:text-light-green/50 cursor-pointer" href='/login'>Área do Trader</Link>
                 </div>
                 <div className="flex items-center md:hidden" >
                     <Sheet open={open} onOpenChange={setOpen}>
