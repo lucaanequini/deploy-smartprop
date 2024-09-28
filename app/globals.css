@@ -11,10 +11,10 @@ body {
 }
 
 .custom::after {
-  @apply content-[''] w-[50px] mx-auto h-1 absolute rounded mt-20 lg:mt-28 bg-light-green;
+  @apply content-[''] w-[50px] mx-auto h-1 absolute rounded mt-28 lg:mt-28 bg-light-green;
 }
 .custom::before {
-  @apply content-[''] w-[130px] h-[1px] absolute rounded mt-20 lg:mt-28 bg-dark-green;
+  @apply content-[''] w-[130px] h-[1px] absolute rounded mt-28 lg:mt-28 bg-dark-green;
 }
 
 .navbar-hover {
@@ -25,12 +25,10 @@ body {
   width: 7px;
 }
 
-
 ::-webkit-scrollbar-thumb {
   background-color: #6ac821;
   border-radius: 5px;
 }
-
 
 ::-webkit-scrollbar-track {
   background-color: #0c2f33;

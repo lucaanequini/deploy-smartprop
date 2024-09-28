@@ -30,11 +30,11 @@ export const Navbar = () => {
     };
 
     return (
-        <div className='bg-dark-green mx-auto rounded-[23px] w-[80%]'
+        <div className='bg-dark-green mx-auto rounded-[23px] w-full sm:w-[90%]'
             data-aos='fade-right'
         >
             <div className="flex justify-between px-5 sm:px-10 lg:px-16 py-1 gap-5">
-                <img src="/logo.png" alt="Logo" className="w-17 h-11" />
+                <img src="/logoRoboVerde.svg" alt="Logo" className="w-24 h-20" />
                 <div className="md:flex justify-end items-center md:gap-x-8 lg:gap-x-16 text-light-green text-sm font-semibold hidden">
                     <a className="hover:text-light-green/50 cursor-pointer" onClick={() => scrollToSection('info')}>Sobre nós</a>
                     <a className="hover:text-light-green/50 cursor-pointer" onClick={() => scrollToSection('planos')}>Planos</a>
@@ -50,7 +50,7 @@ export const Navbar = () => {
                         </SheetTrigger>
                         <SheetContent className='w-full bg-dark-green text-white'>
                             <SheetHeader>
-                                <img src="/logo.png" alt="Logo" className="w-16 h-10" />
+                                <img src="/logoRoboVerde.svg" alt="Logo" className="w-24 h-20" />
                                 <SheetDescription className='text-white text-xl pt-5 pb-5 border-b-2 border-light-green'>
                                     Descubra!
                                 </SheetDescription>

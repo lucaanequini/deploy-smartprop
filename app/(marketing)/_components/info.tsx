@@ -3,7 +3,12 @@ import { Goal, ArrowRight, NotebookPen, CheckCheck, HandCoins, ArrowDown, ArrowL
 export const Info = () => {
     return (
         <div className="h-full flex flex-col items-center gap-10 lg:gap-12 p-5 w-[90%] pb-20" data-aos='flip-up'>
-            <p className="custom text-3xl sm:text-5xl xl:text-6xl font-bold text-dark-green">Repasse de 90%</p>
+            <div className="custom">
+                <div className="flex flex-col items-center gap-y-2 lg:gap-y-3">
+                    <p className="text-3xl sm:text-5xl xl:text-6xl font-bold text-dark-green">Repasse de 90%</p>
+                    <p className="text-lg sm:text-3xl xl:text-4xl text-center font-semibold text-dark-green xl:pb-10">+ até 30% de bônus em missões</p>
+                </div>
+            </div>
             <div className="flex flex-col items-center gap-7">
                 <p className="text-sm sm:text-lg xl:text-xl text-black text-center mx-auto xl:max-w-[60%]">O risco é todo nosso! Alcance o valor de progressão do plano que aumentamos o seu número de contratos e limites financeiros.</p>
             </div>

@@ -26,7 +26,12 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 import { toast, Toaster } from "sonner"
+
 import { Spinner } from "@/components/spinner";
+
+import "jsuites"
+
+import "jsuites/dist/jsuites.css"
 
 const formSchema = z.object({
     nome: z.string(),
@@ -122,7 +127,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">CPF</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="XXX.XXX.XXX-XX" type="number" required {...field} />
+                                            <Input data-mask="000.000.000-00" placeholder="XXX.XXX.XXX-XX" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -133,7 +138,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">Telefone</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="+55 (99) 99999-9999" type="number" required {...field} />
+                                            <Input data-mask="+55 (00) 00000-0000" placeholder="+55 (XX) 9XXXX-XXXX" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
@@ -144,7 +149,7 @@ export const AccountForm = () => {
                                     <div className='flex flex-col gap-y-1'>
                                         <FormLabel className="text-light-green">CEP</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="XXXXX-XX" type="number" required {...field} />
+                                            <Input data-mask="00000-000" placeholder="XXXXX-XXX" required {...field} />
                                         </FormControl>
                                     </div>
                                     <FormMessage />
