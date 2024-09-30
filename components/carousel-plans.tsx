@@ -12,7 +12,7 @@ import { PlanCard } from "./plan-card"
 
 export const CarouselPlans = () => {
     return (
-        <Carousel className="max-w-[310px] md:max-w-[630px] 2lg:max-w-[960px] h-[120%] mx-auto">
+        <Carousel className="max-w-[310px] md:max-w-[630px] 2lg:max-w-[960px] h-[120%] mx-auto mt-5 sm:mt-0">
             <CarouselContent>
                 <CarouselItem className="md:basis-1/2 lg:basis-1/2 2lg:basis-1/3 pt-5" data-aos='fade-left'>
                     <CardUi className="bg-transparent border-0">
