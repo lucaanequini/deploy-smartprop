@@ -11,8 +11,8 @@ export const Plans = () => {
             </div>
             <div className="flex flex-col items-center gap-1">
                 <div className="flex gap-2 items-center lg:hidden">
-                    <p className="text-white text-xs">Deslize para ver mais </p>
-                    <ArrowRight className="h-4 w-4 text-white" />
+                    <p className="text-white text-xs -mt-16">Deslize para ver mais </p>
+                    <ArrowRight className="h-4 w-4 text-white -mt-16" />
                 </div>
                 <div className="items-center gap-x-8 hidden 2xl:flex">
                     <div>

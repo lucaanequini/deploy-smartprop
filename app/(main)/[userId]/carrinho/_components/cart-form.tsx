@@ -48,18 +48,14 @@ const planoValores = {
 
 const plataformaValores = {
     "profitOne": 0,
-    "profitTwo": 230
+    "profitPro": 230
 };
 
 const FormSchema = z.object({
     plano: z
-        .string({
-            required_error: "Please select an email to display.",
-        }),
+        .string(),
     plataforma: z
-        .string({
-            required_error: "Please select an email to display.",
-        })
+        .string()
 })
 
 const FormSchemaTwo = z.object({
@@ -74,7 +70,11 @@ interface CartFormProps {
 
 export const CartForm = ({ userId, onPlanChange }: CartFormProps) => {
     const form = useForm<z.infer<typeof FormSchema>>({
-        resolver: zodResolver(FormSchema)
+        resolver: zodResolver(FormSchema),
+        defaultValues: {
+            plano: '102',
+            plataforma: 'profitPro'
+        }
     });
 
     const formTwo = useForm<z.infer<typeof FormSchemaTwo>>({
@@ -189,7 +189,7 @@ export const CartForm = ({ userId, onPlanChange }: CartFormProps) => {
                                                 <SelectGroup>
                                                     <SelectLabel>Plataformas</SelectLabel>
                                                     <SelectItem value="profitOne">Profit One</SelectItem>
-                                                    <SelectItem value="profitTwo">Profit Pro</SelectItem>
+                                                    <SelectItem value="profitPro">Profit Pro</SelectItem>
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>

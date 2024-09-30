@@ -9,7 +9,7 @@ import { useState } from "react";
 const ChartPage = ({
     params
 }: { params: { userId: string } }) => {
-    const [selectedPlanValue, setSelectedPlanValue] = useState<string>('');
+    const [selectedPlanValue, setSelectedPlanValue] = useState<string>('102');
 
     const handlePlanChange = (newValue: string) => {
         setSelectedPlanValue(newValue);

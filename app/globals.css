@@ -31,7 +31,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #0c2f33;
+  background-color: #fff;
 }
 
 @layer base {

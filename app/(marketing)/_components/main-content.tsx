@@ -11,7 +11,7 @@ export const MainContent = () => {
                 <Navbar />
                 <FirstView />
             </div >
-            <div className="h-full sm:h-[90vh] flex flex-col items-center justify-center gap-y-5 bg-white">
+            <div className="h-full flex flex-col items-center justify-center gap-y-5 bg-white">
                 <MainCard />
                 <Info />
             </div>

@@ -23,6 +23,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
+import { useState } from "react"
+
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
@@ -37,6 +39,12 @@ export function DataTable<TData, TValue>({
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
     )
+
+    const [pagination, setPagination] = useState({
+        pageIndex: 0,
+        pageSize: 5,
+    });
+
     const table = useReactTable({
         data,
         columns,
@@ -44,8 +52,10 @@ export function DataTable<TData, TValue>({
         getPaginationRowModel: getPaginationRowModel(),
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
+        onPaginationChange: setPagination,
         state: {
             columnFilters,
+            pagination,
         }
     })
 
@@ -53,7 +63,7 @@ export function DataTable<TData, TValue>({
         <div className="lg:w-[80%] xl:w-[70%] mx-auto">
             <div className="flex items-center py-4">
                 <Input
-                    placeholder="Search..."
+                    placeholder="Pesquise..."
                     value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
                         table.getColumn(searchKey)?.setFilterValue(event.target.value)

@@ -27,7 +27,9 @@ export const PlanCard = ({ title, value, approvalGoal, dailyRisk, maxLoss, contr
                 onCart ? 'w-[320px] sm:w-[270px] h-[280px] items-center sm:items-start sm:h-[300px]' : 'h-[400px] w-[270px]'
             )}>
                 {recomended && (
-                    <p className="fixed text-white py-1 px-5 -mt-14 ml-10 text-sm bg-light-green rounded-xl w-36">Recomendado</p>
+                    <p className={cn("relative text-white py-1 px-5 -mt-14 ml-10 text-sm bg-light-green rounded-xl w-36",
+                        onCart && 'ml-0 sm:ml-9')}>
+                        Recomendado</p>
                 )}
                 <div className="flex flex-col items-center gap-5">
                     <p className="tracking-widest font-bold text-dark-green text-3xl">{title}</p>

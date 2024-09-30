@@ -11,7 +11,9 @@ import { toast } from "sonner";
 export default function LoginPage() {
     const router = useRouter()
     const [userId, setUserId] = useState<string>("");
+
     const token = typeof window !== 'undefined' ? localStorage.getItem("smartprop-token") : null;
+
     const checkAuthToken = async () => {
         if (token) {
             try {
@@ -31,7 +33,7 @@ export default function LoginPage() {
 
     useEffect(() => {
         checkAuthToken()
-    }, [])
+    }, [router])
 
     return (
         <div className="w-full h-full sm:h-screen my-5 flex flex-col gap-y-5 items-center justify-center">

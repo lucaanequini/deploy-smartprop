@@ -14,6 +14,8 @@ import { toast, Toaster } from "sonner"
 
 import { ExamColumn } from "./columns"
 
+import { useRouter } from "next/navigation"
+
 interface CellActionProps {
     data: ExamColumn
 }
@@ -23,6 +25,7 @@ export const CellAction: React.FC<CellActionProps> = ({
 }) => {
     const [loading, setLoading] = useState(false)
     const [open, setOpen] = useState(false)
+    const router = useRouter()
 
     const token = typeof window !== 'undefined' ? localStorage.getItem("smartprop-token") : null;
 
@@ -32,7 +35,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                 const res = await userService.setDateExam(data.id, token)
                 if (res.status === 200) {
                     toast.success(res.data.message)
-                    window.location.reload();
+                    router.refresh()
                 }
 
             }
@@ -43,7 +46,6 @@ export const CellAction: React.FC<CellActionProps> = ({
             setOpen(false)
         }
     }
-    console.log(data.initDate)
     return (
         <>
             <AlertModal

@@ -13,6 +13,7 @@ import { Navbar } from "@/components/navbar";
 import { DataTable } from "@/components/ui/data-table";
 
 import { columns, ExamColumn } from "./_components/columns";
+import { toast } from "sonner";
 
 export default function HomePage({
     params
@@ -59,7 +60,11 @@ export default function HomePage({
                     setUserExams(formattedRes)
                 }
             } catch (error) {
-                console.log(error)
+                if (error instanceof Error) {
+                    toast.error(error.message)
+                } else {
+                    toast.error("An unknown error occurred")
+                }
             } finally {
                 setLoadingTable(false)
             }
@@ -67,7 +72,7 @@ export default function HomePage({
     }
 
     return (
-        <div className="w-full h-full sm:h-screen flex flex-col bg-slate-50">
+        <div className="w-full h-full min-h-screen flex flex-col bg-slate-50">
             <Navbar />
             {loading &&
                 <div className="w-full flex justify-center mt-5">
